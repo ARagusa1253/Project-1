@@ -2,40 +2,36 @@ package com.revature.models;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.revature.annotation.Column;
+import com.revature.annotation.Entity;
+import com.revature.annotation.Id;
+import com.revature.annotation.JoinColumn;
 
-@Entity
-@Table(name="product")
+@Entity(tableName="products")
 public class Product {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id(columnName="product_id")
 	private int productId;
 	
-	@Column(nullable=false)
+	@Column(columnName="product_name")
 	private String productName;
 	
-	@Column(nullable=false)
+	@Column(columnName="product_brand_name")
 	private String productBrandName;
 	
-	@Column(nullable=false)
+	@Column(columnName="product_group")
 	private String productGroup;
 	
-	@Column(nullable=false)
+	@Column(columnName="product_price")
 	private double productPrice;
 	
-	@Column(nullable=false)
+	@Column(columnName="product_discount_price")
 	private double productDiscountPrice;
 	
-	@Column(nullable=false)
+	@Column(columnName="product_specification")
 	private String productSpecification;
 	
-	@Column(nullable=false)
+	@Column(columnName="product_quantity")
 	private int productQuantity;
 
 	public Product() {

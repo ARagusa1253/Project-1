@@ -2,32 +2,31 @@ package com.revature.models;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.revature.annotation.Column;
+import com.revature.annotation.Entity;
+import com.revature.annotation.Id;
+import com.revature.annotation.JoinColumn;
 
-@Entity
-@Table(name="customers")
+@Entity(tableName="customers")
 public class Customer {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id(columnName="customer_id")
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int customerId;
 	
-	@Column(nullable=false)
+	@Column(columnName="first_name")
 	private String customerFirstName;
 	
-	@Column(nullable=false)
+	@Column(columnName="last_name")
 	private String customerLastName;
 	
-	@Column(nullable=false)
+	@Column(columnName="wallet")
 	private double customerWallet;
 	
-	@Column(nullable=false)
+	@Column(columnName="total_spent")
 	private double customerTotalSpent;
+	
+	//@JoinColumn in case we discover that we need a foreign key
 
 	public Customer() {
 		super();

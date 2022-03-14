@@ -13,52 +13,45 @@ public class ConnectionUtil {
 
 	private static Logger logger = Logger.getLogger(ConnectionUtil.class);
 	
-	// Import the Connection interface from java.sql
-	private static Connection conn = null;
-	
-	// Singleton's have private constructors
-	private ConnectionUtil() {
-	}
+private static Connection conn = null;
 	
 	public static Connection getConnection() {
-	
-	try { // first we check if an instance exists already
 		
-		if (conn != null && !conn.isClosed()) {
-			// if an instance exists, we return the static connection declared on line 20
-			logger.info("returned the re-used connection object");
-			return conn;
+		try { // first we check if an instance exists already
+			
+			if (conn != null && !conn.isClosed()) {
+				// if an instance exists, we return the static connection declared on line 20
+				logger.info("returned the re-used connection object");
+				return conn;
+			}
+		} catch (SQLException e) {
+			logger.warn("we failed to re-use the connection");
+			e.printStackTrace();
+			return null;
 		}
-	} catch (SQLException e) {
-		logger.error("we failed to re-use the connection");
-		e.printStackTrace();
-		return null;
-	}
-	// Here we actually establish a connection to the databaase by passing the appropriate credentials to
-		// connect to it (username & password + JDBC url)
+	
+	//return a connection object
+	
+		String dir = System.getProperty("user.dir");
+
+		Properties prop = new Properties();
 		
-	Properties prop = new Properties(); 
-	
-	String url = "";
-	String username = "";
-	String password = "";
-	
+		String url = "";
+		String username = "";
+		String password = "";
+		
 		try {
+			prop.load(new FileReader(dir + "\\src\\main\\resources\\application.properties"));
 			
-			// The Properties object uses the FileReader object to read all the value from the document that we've specified at the path below
-			prop.load(new FileReader("C:\\Users\\Antonio\\Desktop\\Coding Training Workspace\\Project-1\\src\\main\\resources\\application.properties")); // import from java.io
-			
-			url =  prop.getProperty("url"); // we are able to assign the string value of the "url" field in the application.properties file
+			url = prop.getProperty("url");
 			username = prop.getProperty("username");
 			password = prop.getProperty("password");
 			
 			conn = DriverManager.getConnection(url, username, password);
-			
-			// IF the above line is successful, we WON'T his any of these catch clauses and the code will execute line 71 (return conn;)
-			logger.info("Successfully connected to DB");
+			logger.info("Established connection to the Database");
 			
 		} catch (SQLException e) {
-			logger.error("Can't establish connection to DB with given credentials");
+			logger.warn("Can't establish connection to DB with given credentials");
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
 			logger.warn("couldn't read from application.properties at specified path");
@@ -67,7 +60,6 @@ public class ConnectionUtil {
 			logger.warn("something wrong with application.props file");
 			e.printStackTrace();
 		}
-	
-	return conn;
+		return conn;
 	}
 }

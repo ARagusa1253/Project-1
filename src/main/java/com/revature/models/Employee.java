@@ -3,28 +3,24 @@ package com.revature.models;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.revature.annotation.Column;
+import com.revature.annotation.Entity;
+import com.revature.annotation.Id;
+import com.revature.annotation.JoinColumn;
 
-@Entity
-@Table(name="employees")
+@Entity(tableName="employees")
 public class Employee {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id(columnName="employee_id")
 	private int employeeId;
 	
-	@Column(nullable=false)
+	@Column(columnName="first_name")
 	private String employeeFirstName;
 	
-	@Column(nullable=false)
+	@Column(columnName="last_name")
 	private String employeeLastName;
 	
-	@Column(nullable=false)
+	@Column(columnName="employee_pin")
 	private int employeePin;
 	
 	public Employee() {
