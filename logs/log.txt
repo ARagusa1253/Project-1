@@ -28,3 +28,41 @@
 2022-03-14 16:36:18 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
 2022-03-14 16:36:18 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
 2022-03-14 16:36:18 INFO  revature.dao.CustomerDao:43 - The customers table has been created!
+2022-03-14 17:29:06 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 17:29:06 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:29:06 INFO  revature.dao.CustomerDao:43 - The customers table has been created!
+2022-03-14 17:29:06 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 17:29:06 INFO  revature.dao.ProductDao:39 - The products table has been created!
+2022-03-14 17:56:31 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 17:56:31 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:56:31 INFO  revature.dao.ProductDao:40 - The products table has been created!
+2022-03-14 17:56:31 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:56:31 INFO  revature.dao.ProductDao:64 - The product_name table has been created!
+2022-03-14 17:56:31 INFO  revature.dao.ProductDao:64 - The product_brand_name table has been created!
+2022-03-14 17:56:31 INFO  revature.dao.ProductDao:64 - The product_group table has been created!
+2022-03-14 17:56:31 INFO  revature.dao.ProductDao:64 - The product_price table has been created!
+2022-03-14 17:56:31 INFO  revature.dao.ProductDao:64 - The product_discount_price table has been created!
+2022-03-14 17:56:31 INFO  revature.dao.ProductDao:64 - The product_specification table has been created!
+2022-03-14 17:56:31 WARN  revature.dao.ProductDao:69 - Unable to create Product column in the DB
+2022-03-14 18:07:26 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 18:07:26 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:07:26 INFO  revature.dao.ProductDao:40 - The products table has been created!
+2022-03-14 18:07:26 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:07:26 INFO  revature.dao.ProductDao:68 - The product_name table has been created!
+2022-03-14 18:07:26 INFO  revature.dao.ProductDao:68 - The product_brand_name table has been created!
+2022-03-14 18:07:26 INFO  revature.dao.ProductDao:68 - The product_group table has been created!
+2022-03-14 18:07:26 INFO  revature.dao.ProductDao:68 - The product_price table has been created!
+2022-03-14 18:07:26 INFO  revature.dao.ProductDao:68 - The product_discount_price table has been created!
+2022-03-14 18:07:26 INFO  revature.dao.ProductDao:68 - The product_specification table has been created!
+2022-03-14 18:07:26 WARN  revature.dao.ProductDao:73 - Unable to create Product column in the DB
+2022-03-14 18:08:00 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 18:08:00 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:08:00 INFO  revature.dao.ProductDao:40 - The products table has been created!
+2022-03-14 18:08:00 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:08:00 INFO  revature.dao.ProductDao:68 - The product_name table has been created!
+2022-03-14 18:08:00 INFO  revature.dao.ProductDao:68 - The product_brand_name table has been created!
+2022-03-14 18:08:00 INFO  revature.dao.ProductDao:68 - The product_group table has been created!
+2022-03-14 18:08:00 INFO  revature.dao.ProductDao:68 - The product_price table has been created!
+2022-03-14 18:08:00 INFO  revature.dao.ProductDao:68 - The product_discount_price table has been created!
+2022-03-14 18:08:00 INFO  revature.dao.ProductDao:68 - The product_specification table has been created!
+2022-03-14 18:08:00 INFO  revature.dao.ProductDao:68 - The product_quantity table has been created!
