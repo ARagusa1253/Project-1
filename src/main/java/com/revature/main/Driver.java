@@ -47,6 +47,10 @@ for (MetaModel<?> metaModel : cfg.getMetaModels()) {
 			System.out.println("ID: " + pk.getColumnName());
 			
 			System.out.println("ATTEMPTING TO CREATE TABLE: ");
+			//customerDao.createCustomerTable();
+			//employeeDao.createEmployeeTable();
+			//productDao.createProductTable();
+			
 			customerDao.createTable();
 			employeeDao.createTable();
 			productDao.createTable();

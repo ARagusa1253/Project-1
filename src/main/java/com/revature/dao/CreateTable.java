@@ -3,29 +3,21 @@ package com.revature.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.revature.models.Employee;
 import com.revature.util.ColumnField;
 import com.revature.util.Configuration;
 import com.revature.util.ConnectionUtil;
 import com.revature.util.MetaModel;
 
-public class EmployeeDao {
-	private static Logger logger = Logger.getLogger(EmployeeDao.class);
-	List<Class<?>> tableClass = Arrays.asList(Employee.class);
+public class CreateTable {
 
-	CreateTable tableCreation = new CreateTable();
+	private static Logger logger = Logger.getLogger(CreateTable.class);
 	static Configuration cfg = new Configuration();
-
-	public void createEmployeeTable() {
-		tableCreation.createTable(tableClass);
-	}
 	
-	public boolean createTable() {
+public boolean createTable(List<Class<?>> tableClass) {
 		
 		cfg.addAnnotatedClasses(tableClass);
 		
@@ -85,5 +77,4 @@ public class EmployeeDao {
 		
 		return false;
 	}
-	
 }

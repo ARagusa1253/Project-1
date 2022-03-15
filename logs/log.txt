@@ -66,3 +66,99 @@
 2022-03-14 18:08:00 INFO  revature.dao.ProductDao:68 - The product_discount_price table has been created!
 2022-03-14 18:08:00 INFO  revature.dao.ProductDao:68 - The product_specification table has been created!
 2022-03-14 18:08:00 INFO  revature.dao.ProductDao:68 - The product_quantity table has been created!
+2022-03-15 14:50:25 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-15 14:50:25 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:34 - The customers table has been created!
+2022-03-15 14:50:25 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The first_name table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The last_name table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The wallet table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The total_spent table has been created!
+2022-03-15 14:50:25 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:34 - The customers table has been created!
+2022-03-15 14:50:25 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The first_name table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The last_name table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The wallet table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The total_spent table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The first_name table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The last_name table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The wallet table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The total_spent table has been created!
+2022-03-15 14:50:25 WARN  revature.dao.ProductDao:74 - Unable to create table in the DB
+2022-03-15 14:50:25 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:34 - The customers table has been created!
+2022-03-15 14:50:25 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The first_name table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The last_name table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The wallet table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The total_spent table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The first_name table has been created!
+2022-03-15 14:50:25 INFO  revature.dao.ProductDao:62 - The last_name table has been created!
+2022-03-15 14:50:26 INFO  revature.dao.ProductDao:62 - The wallet table has been created!
+2022-03-15 14:50:26 INFO  revature.dao.ProductDao:62 - The total_spent table has been created!
+2022-03-15 14:50:26 INFO  revature.dao.ProductDao:62 - The first_name table has been created!
+2022-03-15 14:50:26 INFO  revature.dao.ProductDao:62 - The last_name table has been created!
+2022-03-15 14:50:26 INFO  revature.dao.ProductDao:62 - The wallet table has been created!
+2022-03-15 14:50:26 INFO  revature.dao.ProductDao:62 - The total_spent table has been created!
+2022-03-15 14:50:26 WARN  revature.dao.ProductDao:74 - Unable to create table in the DB
+2022-03-15 14:55:52 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-15 14:55:52 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:34 - The customers table has been created!
+2022-03-15 14:55:52 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The first_name table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The last_name table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The wallet table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The total_spent table has been created!
+2022-03-15 14:55:52 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:34 - The customers table has been created!
+2022-03-15 14:55:52 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The first_name table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The last_name table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The wallet table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The total_spent table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The first_name table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The last_name table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The wallet table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The total_spent table has been created!
+2022-03-15 14:55:52 WARN  revature.dao.CreateTable:74 - Unable to create table in the DB
+2022-03-15 14:55:52 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:34 - The customers table has been created!
+2022-03-15 14:55:52 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The first_name table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The last_name table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The wallet table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The total_spent table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The first_name table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The last_name table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The wallet table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The total_spent table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The first_name table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The last_name table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The wallet table has been created!
+2022-03-15 14:55:52 INFO  revature.dao.CreateTable:62 - The total_spent table has been created!
+2022-03-15 14:55:52 WARN  revature.dao.CreateTable:74 - Unable to create table in the DB
+2022-03-15 15:00:48 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-15 15:00:48 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-15 15:00:48 INFO  revature.dao.CustomerDao:47 - The customers table has been created!
+2022-03-15 15:00:48 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-15 15:00:48 INFO  revature.dao.CustomerDao:75 - The first_name table has been created!
+2022-03-15 15:00:48 INFO  revature.dao.CustomerDao:75 - The last_name table has been created!
+2022-03-15 15:00:48 INFO  revature.dao.CustomerDao:75 - The wallet table has been created!
+2022-03-15 15:00:48 INFO  revature.dao.CustomerDao:75 - The total_spent table has been created!
+2022-03-15 15:00:49 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-15 15:00:49 INFO  revature.dao.EmployeeDao:42 - The employees table has been created!
+2022-03-15 15:00:49 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-15 15:00:49 INFO  revature.dao.EmployeeDao:70 - The first_name table has been created!
+2022-03-15 15:00:49 INFO  revature.dao.EmployeeDao:70 - The last_name table has been created!
+2022-03-15 15:00:49 INFO  revature.dao.EmployeeDao:70 - The employee_pin table has been created!
+2022-03-15 15:00:49 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-15 15:00:49 INFO  revature.dao.ProductDao:44 - The products table has been created!
+2022-03-15 15:00:49 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-15 15:00:49 INFO  revature.dao.ProductDao:72 - The product_name table has been created!
+2022-03-15 15:00:49 INFO  revature.dao.ProductDao:72 - The product_brand_name table has been created!
+2022-03-15 15:00:49 INFO  revature.dao.ProductDao:72 - The product_group table has been created!
+2022-03-15 15:00:49 INFO  revature.dao.ProductDao:72 - The product_price table has been created!
+2022-03-15 15:00:49 INFO  revature.dao.ProductDao:72 - The product_discount_price table has been created!
+2022-03-15 15:00:49 INFO  revature.dao.ProductDao:72 - The product_specification table has been created!
+2022-03-15 15:00:49 INFO  revature.dao.ProductDao:72 - The product_quantity table has been created!
