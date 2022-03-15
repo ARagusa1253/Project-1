@@ -193,12 +193,13 @@ public List<Customer> getCustomerInfo(int id) {
 
 
 }
+
+	// Delete Customer
 	
-	// Read Wallet contents
+	// Read Wallet contents \
+	//										  > Transaction functionality (deposit into wallet, withdraw to pay, and record amount spent)
+	// Read total spent			/
 	
-	//Read total spent
-	
-	// Update Wallet contents (Put funds in and pay for goods)
 	
 	
 	

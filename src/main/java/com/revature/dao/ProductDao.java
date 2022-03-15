@@ -167,5 +167,20 @@ public class ProductDao {
 		}
 		return product;
 	}
-
+	
+	// Find all products from a product_group
+	
+	// Find all products from a product_name
+	
+	// check how many of a given item is in the inventory
+	
+	// Retrieve the price a given use would pay (This would take any discounts that would be applied into account and tell the customer)
+	
+	// Add functionality for searching by product specification (this is only applicable if we are using servelts, as otherwise it is redundant)
+	
+	
+	
+	
+	
+	
 }

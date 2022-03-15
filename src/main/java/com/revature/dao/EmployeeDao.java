@@ -166,4 +166,11 @@ public class EmployeeDao {
 
 	}
 
+	// Delete Employee from table
+	
+	// check employee pin (varifyPin)
+	
+	// Employee can add a new product to the product table (Take in an instance of the product class in an Arraylist (like on line 21))
+	// (Need to enter PIN to authenticate the employee)
+	
 }
