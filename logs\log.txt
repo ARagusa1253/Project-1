@@ -1,0 +1,86 @@
+2022-03-14 17:23:12 WARN  revature.util.ConnectionUtil:57 - couldn't read from application.properties at specified path
+2022-03-14 17:23:12 WARN  revature.util.ConnectionUtil:57 - couldn't read from application.properties at specified path
+2022-03-14 17:23:53 WARN  revature.util.ConnectionUtil:57 - couldn't read from application.properties at specified path
+2022-03-14 17:23:53 WARN  revature.util.ConnectionUtil:57 - couldn't read from application.properties at specified path
+2022-03-14 17:24:38 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 17:24:38 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:24:38 INFO  revature.dao.CustomerDao:43 - The customers table has been created!
+2022-03-14 17:28:37 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 17:28:37 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:28:37 INFO  revature.dao.CustomerDao:43 - The customers table has been created!
+2022-03-14 17:28:37 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 17:28:37 INFO  revature.dao.EmployeeDao:39 - The employees table has been created!
+2022-03-14 17:56:32 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 17:56:32 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:56:32 INFO  revature.dao.EmployeeDao:40 - The employees table has been created!
+2022-03-14 17:56:32 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:56:32 WARN  revature.dao.EmployeeDao:61 - Unable to create Employee table in the DB
+2022-03-14 17:58:41 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 17:58:41 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:58:41 INFO  revature.dao.EmployeeDao:40 - The employees table has been created!
+2022-03-14 17:58:41 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:58:42 WARN  revature.dao.EmployeeDao:61 - Unable to create Employee table in the DB
+2022-03-14 17:59:14 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 17:59:14 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:59:15 INFO  revature.dao.EmployeeDao:40 - The employees table has been created!
+2022-03-14 17:59:15 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:59:15 WARN  revature.dao.EmployeeDao:62 - Unable to create Employee table in the DB
+2022-03-14 17:59:25 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 17:59:25 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:59:25 INFO  revature.dao.EmployeeDao:40 - The employees table has been created!
+2022-03-14 17:59:25 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:59:25 WARN  revature.dao.EmployeeDao:62 - Unable to create Employee table in the DB
+2022-03-14 17:59:38 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 17:59:38 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:59:38 INFO  revature.dao.EmployeeDao:40 - The employees table has been created!
+2022-03-14 17:59:38 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 17:59:38 WARN  revature.dao.EmployeeDao:62 - Unable to create Employee column in the DB
+2022-03-14 18:00:07 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 18:00:07 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:00:08 INFO  revature.dao.EmployeeDao:40 - The employees table has been created!
+2022-03-14 18:00:08 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:00:08 INFO  revature.dao.EmployeeDao:57 - The first_name column has been created!
+2022-03-14 18:00:08 INFO  revature.dao.EmployeeDao:57 - The last_name column has been created!
+2022-03-14 18:00:08 WARN  revature.dao.EmployeeDao:62 - Unable to create Employee column in the DB
+2022-03-14 18:00:20 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 18:00:20 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:00:20 INFO  revature.dao.EmployeeDao:40 - The employees table has been created!
+2022-03-14 18:00:20 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:00:20 INFO  revature.dao.EmployeeDao:57 - The first_name column has been created!
+2022-03-14 18:00:20 INFO  revature.dao.EmployeeDao:57 - The last_name column has been created!
+2022-03-14 18:00:20 WARN  revature.dao.EmployeeDao:62 - Unable to create Employee column in the DB
+2022-03-14 18:00:41 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 18:00:41 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:00:41 INFO  revature.dao.EmployeeDao:40 - The employees table has been created!
+2022-03-14 18:00:41 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:00:41 INFO  revature.dao.EmployeeDao:57 - The first_name column has been created!
+2022-03-14 18:00:41 INFO  revature.dao.EmployeeDao:57 - The last_name column has been created!
+2022-03-14 18:00:41 WARN  revature.dao.EmployeeDao:62 - Unable to create Employee column in the DB
+2022-03-14 18:00:42 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 18:00:42 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:00:42 INFO  revature.dao.EmployeeDao:40 - The employees table has been created!
+2022-03-14 18:00:42 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:00:42 INFO  revature.dao.EmployeeDao:57 - The first_name column has been created!
+2022-03-14 18:00:42 INFO  revature.dao.EmployeeDao:57 - The last_name column has been created!
+2022-03-14 18:00:42 WARN  revature.dao.EmployeeDao:62 - Unable to create Employee column in the DB
+2022-03-14 18:01:03 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 18:01:03 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:01:03 INFO  revature.dao.EmployeeDao:40 - The employees table has been created!
+2022-03-14 18:01:03 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:01:03 INFO  revature.dao.EmployeeDao:58 - The first_name column has been created!
+2022-03-14 18:01:03 INFO  revature.dao.EmployeeDao:58 - The last_name column has been created!
+2022-03-14 18:01:03 WARN  revature.dao.EmployeeDao:63 - Unable to create Employee column in the DB
+2022-03-14 18:01:19 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 18:01:19 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:01:19 INFO  revature.dao.EmployeeDao:40 - The employees table has been created!
+2022-03-14 18:01:19 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:01:19 INFO  revature.dao.EmployeeDao:58 - The first_name column has been created!
+2022-03-14 18:01:19 INFO  revature.dao.EmployeeDao:58 - The last_name column has been created!
+2022-03-14 18:01:19 WARN  revature.dao.EmployeeDao:63 - Unable to create Employee column in the DB
+2022-03-14 18:07:40 INFO  revature.util.ConnectionUtil:51 - Established connection to the Database
+2022-03-14 18:07:40 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:07:40 INFO  revature.dao.EmployeeDao:40 - The employees table has been created!
+2022-03-14 18:07:40 INFO  revature.util.ConnectionUtil:24 - returned the re-used connection object
+2022-03-14 18:07:40 INFO  revature.dao.EmployeeDao:61 - The first_name column has been created!
+2022-03-14 18:07:40 INFO  revature.dao.EmployeeDao:61 - The last_name column has been created!
+2022-03-14 18:07:40 INFO  revature.dao.EmployeeDao:61 - The employee_pin column has been created!

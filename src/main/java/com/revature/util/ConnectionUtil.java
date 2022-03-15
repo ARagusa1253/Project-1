@@ -41,8 +41,8 @@ private static Connection conn = null;
 		String password = "";
 		
 		try {
-			prop.load(new FileReader(dir + "\\src\\main\\resources\\application.properties"));
-			
+			prop.load(new FileReader(dir + "/src/main/resources/application.properties"));
+			//System.out.println(dir + "\\src\\main\\resources\\application.properties");
 			url = prop.getProperty("url");
 			username = prop.getProperty("username");
 			password = prop.getProperty("password");

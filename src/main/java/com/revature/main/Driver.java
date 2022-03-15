@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.revature.dao.CustomerDao;
+import com.revature.dao.EmployeeDao;
 import com.revature.models.Customer;
 import com.revature.models.Employee;
 import com.revature.models.Product;
@@ -23,6 +24,8 @@ public class Driver {
 		
 		Configuration cfg = new Configuration();
 		CustomerDao customerDao = new CustomerDao();
+		EmployeeDao employeeDao = new EmployeeDao();
+
 
 		//cfg.addAnnotatedClasses(myClasses);
 		ConnectionUtil.getConnection();
@@ -44,8 +47,8 @@ for (MetaModel<?> metaModel : cfg.getMetaModels()) {
 			System.out.println("ID: " + pk.getColumnName());
 			
 			System.out.println("ATTEMPTING TO CREATE TABLE: ");
-			customerDao.createTable();
-			
+			//customerDao.createTable();
+			employeeDao.createTable();
 			for (ColumnField cf : columns) {
 				System.out.println("Found the column field named " + cf.getColumnName() + " with the type " + cf.getType());
 			}
