@@ -100,27 +100,8 @@ public class CustomerDao {
 		
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			for (MetaModel<?> metaModel : cfg.getMetaModels()) {
-				
-//				List<ColumnField> columns = metaModel.getColumns();
-//				
-//				String tempQuery = "";
-//				
-//				for (ColumnField cf : columns) {
-//					
-//					tempQuery += cf.getColumnName() + ", ";
-//				}
-//				
-//				if (tempQuery != null) {
-//					.filter (tempQuery -> tempQuery.length() != 0)
-//					.map (tempQuery -> tempQuery.substring(0, tempQuery.length() - 1))
-//					.findFirst();
-//				}
-				
-				
-				
+						
 				String sql = "INSERT INTO " + metaModel.getEntity() + "(first_name, last_name, wallet, total_spent) VALUES (?, ?, ?, ?) RETURNING " + metaModel.getEntity() + "." + metaModel.getPrimaryKey().getColumnName();
-				
-				
 				
 				PreparedStatement stmt = conn.prepareStatement(sql);
 			
@@ -150,7 +131,7 @@ public class CustomerDao {
 		
 	}
 	
-	// Get Customer Info
+	// Get All Customer Info
 	
 public List<Customer> getCustomerInfo(int id) {
 	
@@ -179,22 +160,160 @@ public List<Customer> getCustomerInfo(int id) {
 						
 						Customer c = new Customer(customerId, firstName, lastName, wallet, totalSpent);
 						customer.add(c);
+						return customer;
 					}
 				}
 			}catch (SQLException e) {
 			logger.warn("Could not retrieve information on customer!");
 			e.printStackTrace();
 		} 
-		return customer;
+		return null;
 		}
 
+// Delete Customer
+
+public void deleteCustomer(int id) {
+	
+	cfg.addAnnotatedClasses(tableClass);
+	
+	try(Connection conn = ConnectionUtil.getConnection()) {
+		for (MetaModel<?> metaModel : cfg.getMetaModels()) {
+			
+			String sql = "DELETE FROM " + metaModel.getEntity() + " WHERE " + metaModel.getPrimaryKey().getColumnName() + " = ?;";
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setInt(1, id);
+			
+			stmt.executeUpdate();
+		}
+	} catch (SQLException e) {
+		logger.warn("Could not delete information on customer!");
+		e.printStackTrace();
+	}	
+}
+
+//Read Wallet contents
+
+public double checkWallet(int id) {
+	
+	cfg.addAnnotatedClasses(tableClass);
+	
+	try(Connection conn = ConnectionUtil.getConnection()) {
+		for (MetaModel<?> metaModel : cfg.getMetaModels()) {
+			
+			String sql = "SELECT wallet FROM " + metaModel.getEntity() + " WHERE " + metaModel.getPrimaryKey().getColumnName() + " = ?;";
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setInt(1, id);
+			
+			ResultSet rs;
+			
+			if ((rs = stmt.executeQuery()) != null) {
+					
+				logger.info("You take a peek inside your wallet...");
+					double amountHeld = rs.getDouble("wallet");
+					return amountHeld;
+			}
+		}
+	} catch (SQLException e) {
+		logger.warn("Could not retrieve wallet contents from customer!");
+		e.printStackTrace();
+	}
+	return -1;
+}
+
+// Add to wallet
+
+public double addToWallet(double addedAmount, int id) {
+	cfg.addAnnotatedClasses(tableClass);
+	
+	try(Connection conn = ConnectionUtil.getConnection()) {
+		for (MetaModel<?> metaModel : cfg.getMetaModels()) {
+			
+			String sql = "UPDATE " + metaModel.getEntity() + " SET wallet = wallet + ? WHERE " + metaModel.getPrimaryKey().getColumnName() + " = ?;";
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setDouble(1, addedAmount);
+			stmt.setInt(1, id);
+			
+			stmt.executeUpdate();
+			logger.info("Funds have been inserted successfully!");
+			return id;
+			}
+		}catch (SQLException e) {
+		logger.warn("Could not add to wallet contents from customer!");
+		e.printStackTrace();
+	}
+	
+	return -1;
+}
+
+// Remove from wallet
+
+public double removeFromWallet(double addedAmount, int id) {
+	cfg.addAnnotatedClasses(tableClass);
+	
+	try(Connection conn = ConnectionUtil.getConnection()) {
+		for (MetaModel<?> metaModel : cfg.getMetaModels()) {
+			
+			String sql = "UPDATE " + metaModel.getEntity() + " SET wallet = wallet - ? WHERE " + metaModel.getPrimaryKey().getColumnName() + " = ?;";
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setDouble(1, addedAmount);
+			stmt.setInt(1, id);
+			
+			stmt.executeUpdate();
+			logger.info("Funds have been removed successfully!");
+			return id;
+			}
+		}catch (SQLException e) {
+		logger.warn("Could not remove wallet contents from customer!");
+		e.printStackTrace();
+	}
+	
+	return -1;
+}
 
 
+//Read total spent
+
+public double checkTotalSpent(int id) {
+	
+	cfg.addAnnotatedClasses(tableClass);
+	
+	try(Connection conn = ConnectionUtil.getConnection()) {
+		for (MetaModel<?> metaModel : cfg.getMetaModels()) {
+			
+			String sql = "SELECT total_spent FROM " + metaModel.getEntity() + " WHERE " + metaModel.getPrimaryKey().getColumnName() + " = ?;";
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setInt(1, id);
+			
+			ResultSet rs;
+			
+			if ((rs = stmt.executeQuery()) != null) {
+					
+					double totalSpent = rs.getDouble("wallet");
+					logger.info("You've spent a total of $" + totalSpent);
+					return totalSpent;
+			}
+		}
+	} catch (SQLException e) {
+		logger.warn("Could not total spent from customer!");
+		e.printStackTrace();
+	}
+	return -1;
+}
 
 
 }
 
-	// Delete Customer
+	
 	
 	// Read Wallet contents \
 	//										  > Transaction functionality (deposit into wallet, withdraw to pay, and record amount spent)
