@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.models.Customer;
 import com.revature.models.Product;
 import com.revature.util.ColumnField;
 import com.revature.util.Configuration;
@@ -159,28 +160,166 @@ public class ProductDao {
 					Product p = new Product(productId, productName, productBrandName, productGroup, productPrice,
 							productDiscountPrice, productSpecification, productQuantity);
 					product.add(p);
+					return product;
 				}
 			}
 		} catch (SQLException e) {
 			logger.info("Could not retrieve information on customer");
 			e.printStackTrace();
 		}
-		return product;
+		return null;
 	}
 	
 	// Find all products from a product_group
+
+	public List<Product> getProductByProductGroup(String productGroup){
+		cfg.addAnnotatedClasses(tableClass);
+		List<Product> products = new LinkedList<Product>();
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			for (MetaModel<?> metaModel : cfg.getMetaModels()) {
+				
+				String sql = "SELECT * FROM " + metaModel.getEntity() + " WHERE product_group "
+						+ "= ?";
+				
+				PreparedStatement stmt = conn.prepareStatement(sql);
+				
+				stmt.setString(1, productGroup);
+				
+				ResultSet rs = stmt.executeQuery();
+				
+				while(rs.next()) {
+					int productId = rs.getInt("product_id");
+					String productName = rs.getString("product_name");
+					String productBrandName = rs.getString("product_name");
+					String pg = rs.getString("product_group");
+					double productPrice = rs.getDouble("product_price");
+					double productDiscountPrice = rs.getDouble("product_discount_price");
+					String productSpecification = rs.getString("product_specification");
+					int productQuantity = rs.getInt("product_quantity");
+					
+					Product p = new Product(productId, productName, productBrandName, pg, productPrice,
+							productDiscountPrice, productSpecification, productQuantity);
+					products.add(p);
+				}
+				return products;
+			}
+		} catch (SQLException e) {
+			logger.info("Could not retrieve information on products with group " + productGroup);
+			e.printStackTrace();
+		}
+		return products;
+	}
 	
 	// Find all products from a product_name
+
+	public List<Product> getProductByProductName(String productName){
+		cfg.addAnnotatedClasses(tableClass);
+		List<Product> products = new LinkedList<Product>();
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			for (MetaModel<?> metaModel : cfg.getMetaModels()) {
+				
+				String sql = "SELECT * FROM " + metaModel.getEntity() + " WHERE product_name "
+						+ "= ?";
+				
+				PreparedStatement stmt = conn.prepareStatement(sql);
+				
+				stmt.setString(1, productName);
+				
+				ResultSet rs = stmt.executeQuery();
+				
+				while(rs.next()) {
+					int productId = rs.getInt("product_id");
+					String pn = rs.getString("product_name");
+					String productBrandName = rs.getString("product_name");
+					String productGroup = rs.getString("product_group");
+					double productPrice = rs.getDouble("product_price");
+					double productDiscountPrice = rs.getDouble("product_discount_price");
+					String productSpecification = rs.getString("product_specification");
+					int productQuantity = rs.getInt("product_quantity");
+					
+					Product p = new Product(productId, pn, productBrandName, productGroup, productPrice,
+							productDiscountPrice, productSpecification, productQuantity);
+					products.add(p);
+				}
+				return products;
+			}
+		} catch (SQLException e) {
+			logger.info("Could not retrieve " + productName);
+			e.printStackTrace();
+		}
+		return products;
+
+	}
 	
 	// check how many of a given item is in the inventory
+
+	public int getProductStockById(int id) {
+		cfg.addAnnotatedClasses(tableClass);
+		int productQuantity = -1;
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			for (MetaModel<?> metaModel : cfg.getMetaModels()) {
+				
+				String sql = "SELECT * FROM " + metaModel.getEntity() + " WHERE id "
+						+ "= ?";
+				
+				PreparedStatement stmt = conn.prepareStatement(sql);
+				
+				stmt.setInt(1, id);
+				
+				ResultSet rs;
+				
+				if((rs = stmt.executeQuery()) != null) {
+					productQuantity = rs.getInt("product_quantity");
+					return productQuantity;
+				}
+			}
+		} catch (SQLException e) {
+			logger.info("Could not retrieve product " + id + " stock");
+			e.printStackTrace();
+		}
+		return productQuantity;
+	}
 	
+	// NOTE: discount is applied to customers who have spent > $1000 at the store
 	// Retrieve the price a given use would pay (This would take any discounts that would be applied into account and tell the customer)
+
+	public double getProductPrice(int productId, Customer customer) {
+		
+		double productPrice = -1;
+		cfg.addAnnotatedClasses(tableClass);
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			for (MetaModel<?> metaModel : cfg.getMetaModels()) {
+				
+				String sql = "SELECT * FROM " + metaModel.getEntity() + " WHERE id "
+						+ "= ?";
+				
+				PreparedStatement stmt = conn.prepareStatement(sql);
+				
+				stmt.setInt(1, productId);
+				
+				ResultSet rs;
+				
+				if((rs = stmt.executeQuery()) != null) {
+					if(customer.getCustomerTotalSpent() > 1000) {
+						productPrice = rs.getDouble("product_discount_price");
+						return productPrice;
+					}
+					else {
+						productPrice = rs.getDouble("product_price");
+						return productPrice;
+					}
+				}
+			}
+		}
+		catch (SQLException e) {
+			logger.info("Could not retrieve product " + productId + " price");
+			e.printStackTrace();
+		}
+		return productPrice;
+	}
+	
 	
 	// Add functionality for searching by product specification (this is only applicable if we are using servelts, as otherwise it is redundant)
-	
-	
-	
-	
-	
+
 	
 }
