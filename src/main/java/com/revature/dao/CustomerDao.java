@@ -152,7 +152,8 @@ public List<Customer> getCustomerInfo(int id) {
 				
 				if ((rs = stmt.executeQuery()) != null) {
 						
-						int customerId = rs.getInt("id");
+					if(rs.next() ==true) {
+						int customerId = rs.getInt("customer_id");
 						String firstName = rs.getString("first_name");
 						String lastName = rs.getString("last_name");
 						double wallet = rs.getDouble("wallet");
@@ -161,9 +162,12 @@ public List<Customer> getCustomerInfo(int id) {
 						Customer c = new Customer(customerId, firstName, lastName, wallet, totalSpent);
 						customer.add(c);
 						return customer;
+					} else {
+						logger.info("There is no Customer with the ID: " + id);
+					}
 					}
 				}
-			}catch (SQLException e) {
+			} catch (SQLException e) {
 			logger.warn("Could not retrieve information on customer!");
 			e.printStackTrace();
 		} 
@@ -186,6 +190,8 @@ public void deleteCustomer(int id) {
 			stmt.setInt(1, id);
 			
 			stmt.executeUpdate();
+			
+			logger.info("Customer with the ID: " + id + " has been deleted");
 		}
 	} catch (SQLException e) {
 		logger.warn("Could not delete information on customer!");
@@ -211,10 +217,14 @@ public double checkWallet(int id) {
 			ResultSet rs;
 			
 			if ((rs = stmt.executeQuery()) != null) {
-					
-				logger.info("You take a peek inside your wallet...");
+				if(rs.next() ==true) {
+					logger.info("You take a peek inside your wallet...");
 					double amountHeld = rs.getDouble("wallet");
 					return amountHeld;
+				} else {
+					logger.info("Customer with ID of (" + id + ") could not check their wallet contents");
+				}
+				
 			}
 		}
 	} catch (SQLException e) {
@@ -237,7 +247,7 @@ public double addToWallet(double addedAmount, int id) {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			
 			stmt.setDouble(1, addedAmount);
-			stmt.setInt(1, id);
+			stmt.setInt(2, id);
 			
 			stmt.executeUpdate();
 			logger.info("Funds have been inserted successfully!");
@@ -253,7 +263,7 @@ public double addToWallet(double addedAmount, int id) {
 
 // Remove from wallet
 
-public double removeFromWallet(double addedAmount, int id) {
+public double removeFromWallet(double removedAmount, int id) {
 	cfg.addAnnotatedClasses(tableClass);
 	
 	try(Connection conn = ConnectionUtil.getConnection()) {
@@ -263,8 +273,8 @@ public double removeFromWallet(double addedAmount, int id) {
 			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			
-			stmt.setDouble(1, addedAmount);
-			stmt.setInt(1, id);
+			stmt.setDouble(1, removedAmount);
+			stmt.setInt(2, id);
 			
 			stmt.executeUpdate();
 			logger.info("Funds have been removed successfully!");
@@ -277,6 +287,31 @@ public double removeFromWallet(double addedAmount, int id) {
 	
 	return -1;
 }
+
+// Record total spent
+
+public void spendFromWallet(double removedAmount, int id) {
+	
+	try(Connection conn = ConnectionUtil.getConnection()) {
+		for (MetaModel<?> metaModel : cfg.getMetaModels()) {
+			
+			String sql = "UPDATE " + metaModel.getEntity() + " SET total_spent = total_spent + ? WHERE " + metaModel.getPrimaryKey().getColumnName() + " = ?;";
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setDouble(1, removedAmount);
+			stmt.setInt(2, id);
+			
+			stmt.executeUpdate();
+			logger.info("Funds spent have been recorded to Customer with ID of + (id) +'s total successfully!");
+			return;
+			}
+		} catch (SQLException e) {
+		logger.warn("Could not remove wallet contents from customer!");
+		e.printStackTrace();
+	}
+}
+
 
 
 //Read total spent

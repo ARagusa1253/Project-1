@@ -11,6 +11,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.revature.models.Employee;
+import com.revature.models.Product;
 import com.revature.util.ColumnField;
 import com.revature.util.Configuration;
 import com.revature.util.ConnectionUtil;
@@ -19,9 +20,12 @@ import com.revature.util.MetaModel;
 public class EmployeeDao {
 	private static Logger logger = Logger.getLogger(EmployeeDao.class);
 	List<Class<?>> tableClass = Arrays.asList(Employee.class);
+	List<Class<?>> tableClassForProduct = Arrays.asList(Product.class);
+	ProductDao productDao = new ProductDao();
 
 	CreateTable tableCreation = new CreateTable();
 	static Configuration cfg = new Configuration();
+	static Configuration cfgProduct = new Configuration();
 
 	public void createEmployeeTable() {
 		tableCreation.createTable(tableClass);
@@ -92,7 +96,7 @@ public class EmployeeDao {
 		try (Connection conn = ConnectionUtil.getConnection()) {
 			for (MetaModel<?> metaModel : cfg.getMetaModels()) {
 				String sql = "INSERT INTO " + metaModel.getEntity()
-						+ "(first_name, last_name, Pin) VALUES (?, ?, ?) RETURNING " + metaModel.getEntity() + "."
+						+ "(first_name, last_name, employee_pin) VALUES (?, ?, ?) RETURNING " + metaModel.getEntity() + "."
 						+ metaModel.getPrimaryKey().getColumnName();
 				PreparedStatement stmt = conn.prepareStatement(sql);
 
@@ -131,46 +135,165 @@ public class EmployeeDao {
 
 			for (MetaModel<?> metaModel : cfg.getMetaModels()) {
 
-				String sql = "SELECT * FROM" + metaModel.getEntity() + " WHERE"
-						+ metaModel.getPrimaryKey().getColumnName();
+				String sql = "SELECT * FROM " + metaModel.getEntity() + " WHERE "
+						+ metaModel.getPrimaryKey().getColumnName() + " = ?;";
 
 				PreparedStatement stmt = conn.prepareStatement(sql);
 
 				stmt.setInt(1, id);
 
-				ResultSet rs;
+				ResultSet rs; 
 
 				if ((rs = stmt.executeQuery()) != null) {
+					
+					if (rs.next()==true) {
+						int empId = rs.getInt("employee_id");
+						String firstName = rs.getString("first_name");
+						String lastName = rs.getString("last_name");
+						int Pin = rs.getInt("employee_pin");
 
-					int empId = rs.getInt("id");
-
-					String firstName = rs.getString("first_name");
-
-					String lastName = rs.getString("last_name");
-
-					int Pin = rs.getInt("employee_pin");
-
-					Employee e = new Employee(empId, firstName, lastName, Pin);
-
-					employee.add(e);
-
+						Employee e = new Employee(empId, firstName, lastName, Pin);
+						employee.add(e);
+						return employee;
+					} else {
+						logger.info("There is no Employee with the ID: " + id);
+					}
+					}
 				}
-			}
-		} catch (SQLException e) {
+			} catch (SQLException e) {
 			logger.warn("Could not retrieve information for employee!");
 			e.printStackTrace();
-
 		}
-
-		return employee;
-
+		return null;
 	}
 
 	// Delete Employee from table
+	
+public void deleteEmployee(int id) {
+		
+		cfg.addAnnotatedClasses(tableClass);
+		
+		try(Connection conn = ConnectionUtil.getConnection()) {
+			for (MetaModel<?> metaModel : cfg.getMetaModels()) {
+				
+				String sql = "DELETE FROM " + metaModel.getEntity() + " WHERE " + metaModel.getPrimaryKey().getColumnName() + " = ?;";
+				
+				PreparedStatement stmt = conn.prepareStatement(sql);
+				
+				stmt.setInt(1, id);
+				
+				stmt.executeUpdate();
+				
+				logger.info("Employee with the ID: " + id + " has been deleted");
+				return;
+				
+			}
+		} catch (SQLException e) {
+			logger.warn("Could not delete employee from Database!");
+			e.printStackTrace();
+		}
+	}
 	
 	// check employee pin (varifyPin)
 	
 	// Employee can add a new product to the product table (Take in an instance of the product class in an Arraylist (like on line 21))
 	// (Need to enter PIN to authenticate the employee)
+
+public void deleteProduct(int id) {
+
+	cfgProduct.addAnnotatedClasses(tableClassForProduct);
+
+	try (Connection conn = ConnectionUtil.getConnection()) {
+		for (MetaModel<?> metaModel : cfgProduct.getMetaModels()) {
+
+			String sql = "DELETE FROM " + metaModel.getEntity() + " WHERE "
+					+ metaModel.getPrimaryKey().getColumnName() + " = ?;";
+
+			PreparedStatement stmt = conn.prepareStatement(sql);
+
+			stmt.setInt(1, id);
+
+			stmt.executeUpdate();
+		}
+	} catch (SQLException e) {
+		logger.warn("Could not delete product from Database!");
+		e.printStackTrace();
+	}
+}
+
+public void changePrice(double newPrice, int id) {
+
+		cfgProduct.addAnnotatedClasses(tableClassForProduct);
+
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			for (MetaModel<?> metaModel : cfgProduct.getMetaModels()) {
+
+				String sql = "UPDATE " + metaModel.getEntity() + " SET product_price = ? WHERE "
+						+ metaModel.getPrimaryKey().getColumnName() + " = ?;";
+				
+				PreparedStatement stmt = conn.prepareStatement(sql);
+
+				stmt.setDouble(1, newPrice);
+				stmt.setInt(2, id);
+
+				stmt.executeUpdate();
+				logger.info("Price of the product with ID of " + id + " has been changed!");
+			}
+		} catch (SQLException e) {
+			logger.warn("Unable to update product's price!");
+			e.printStackTrace();
+		}
+
+	}
+
+	public void changeDiscountPrice(double newDiscountPrice, int id){
+
+		cfgProduct.addAnnotatedClasses(tableClassForProduct);
+
+			try (Connection conn = ConnectionUtil.getConnection()) {
+				for (MetaModel<?> metaModel : cfgProduct.getMetaModels()) {
+
+					String sql = "UPDATE " + metaModel.getEntity() + " SET product_discount_price = ?"
+							+ " WHERE " + metaModel.getPrimaryKey().getColumnName() + " = ?;";
+
+					PreparedStatement stmt = conn.prepareStatement(sql);
+
+					stmt.setDouble(1, newDiscountPrice);
+					stmt.setInt(2, id);
+
+					stmt.executeUpdate();
+				}
+			} catch (SQLException e) {
+				logger.warn("Unable to update product's discount price!");
+				e.printStackTrace();
+			}
+
+		}
+
+public void changeProductQuantity (int newQuantity, int id) {
+		
+	cfgProduct.addAnnotatedClasses(tableClassForProduct);
+	
+	try(Connection conn = ConnectionUtil.getConnection()) {
+		for (MetaModel<?> metaModel : cfgProduct.getMetaModels()) {
+			
+			String sql = "UPDATE " + metaModel.getEntity() + " SET product_quantity = ? WHERE "
+					+ metaModel.getPrimaryKey().getColumnName() + " = ?;";
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			stmt.setInt(1, newQuantity);
+			stmt.setInt(2, id);
+			
+			stmt.executeUpdate();
+			return;
+		}
+	} catch (SQLException e) {
+		logger.warn("Unable to update product's quantity!");
+		e.printStackTrace();
+	}
+	
+	
+}
 	
 }

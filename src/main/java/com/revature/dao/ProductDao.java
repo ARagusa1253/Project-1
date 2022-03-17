@@ -122,7 +122,7 @@ public class ProductDao {
 				}
 			}
 		} catch (SQLException e) {
-			logger.warn("Could not create new customer!");
+			logger.warn("Could not create new product!");
 			e.printStackTrace();
 		}
 		return -1;
